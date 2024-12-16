@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-1/4 bg-gray-800 text-white flex flex-col p-6">
+        <h2 class="text-2xl font-semibold mb-8">Dashboard</h2>
+        <nav>
+          <ul>
+            <li class="mb-4">
+              <a
+                href="#"
+                id="createNotificationLink"
+                class="block p-3 rounded-lg hover:bg-gray-700"
+                >Create Notification</a
+              >
+            </li>
+            <li class="mb-4">
+              <a
+                href="../notifications/html/details.html"
+                id="viewNotificationsLink"
+                class="block p-3 rounded-lg hover:bg-gray-700"
+                >View Notifications</a
+              >
+            </li>
+            <li class="mb-4">
+              <a href="#" class="block p-3 rounded-lg hover:bg-gray-700"
+                >Settings</a
+              >
+            </li>
+            <li class="mb-4">
+              <a href="#" class="block p-3 rounded-lg hover:bg-gray-700"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a href="#" class="block p-3 rounded-lg hover:bg-gray-700"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="w-3/4 flex-grow p-8">
+        <header class="mb-8">
+          <h1 class="text-3xl font-bold">Welcome to the Dashboard</h1>
+        </header>
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <a
+            href="../notifications/html/createNotifications.html"
+            id="createNotificationCard"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">Create a Notification</h3>
+            <p class="text-sm text-gray-600">
+              Post updates or announcements for your team or company.
+            </p>
+          </a>
+          <!-- Card 2 -->
+          <a
+            href="../notifications/html/details.html"
+            id="viewNotificationsCard"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">View Notifications</h3>
+            <p class="text-sm text-gray-600">
+              Check all notifications created by your company.
+            </p>
+          </a>
+          <!-- Card 3 -->
+          <a
+            href="#"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">Manage Tests</h3>
+            <p class="text-sm text-gray-600">
+              Oversee and manage all tests conducted within your organization.
+            </p>
+          </a>
+          <!-- Card 4 -->
+          <a
+            href="#"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">View Applications</h3>
+            <p class="text-sm text-gray-600">
+              Review applications submitted by candidates for various roles.
+            </p>
+          </a>
+          <!-- Card 5 -->
+          <a
+            href="../uploadPhotos/uploadPhotos.html"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">Uploaded Photos</h3>
+            <p class="text-sm text-gray-600">
+              View and manage all photos uploaded by users or team members.
+            </p>
+          </a>
+          <!-- Card 6 -->
+          <a
+            href="#"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">Test Responses</h3>
+            <p class="text-sm text-gray-600">
+              Monitor and analyze the responses submitted for various tests.
+            </p>
+          </a>
+          <!-- Card 7 -->
+          <a
+            href="#"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">Ranking Profiles</h3>
+            <p class="text-sm text-gray-600">
+              Rank and evaluate user profiles based on performance or other
+              criteria.
+            </p>
+          </a>
+          <!-- Card 8 -->
+          <a
+            href="../uploadPhotos/viewPhotos.html"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">See Photos</h3>
+            <p class="text-sm text-gray-600">
+              See uploaded photos here.
+            </p>
+          </a>
+
+
+          <!-----card9------>
+
+          <a
+            href="../posts/html/index.html"
+            id="createJobpost"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">Post opportunity details</h3>
+            <p class="text-sm text-gray-600">
+              Post new oppotunies and vacancies for your team or company.
+            </p>
+          </a>
+
+          <!----card10-->
+          <a
+            href="../posts/html/viewJobPost.html"
+            id="seeJobpost"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">See posts</h3>
+            <p class="text-sm text-gray-600">
+              Post created by your team or company.
+            </p>
+          </a>
+
+          <!----card 11-->
+
+          <a
+            href="../viewProfiles/candidateList.html"
+            id="seeJobpost"
+            class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-200"
+          >
+            <h3 class="text-xl font-semibold mb-2">See All candidates profile</h3>
+            <p class="text-sm text-gray-600">
+              check profiles to get a eligible candidate for your team.
+            </p>
+          </a>
+        </section>
+      </main>
+    </div>
+    <!-- <script src="script.js"></script> -->
+     
+  </body>
+</html>

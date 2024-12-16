@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Render Multiple Images</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      #image-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      #image-container img {
+        max-width: 200px;
+        height: auto;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      #image-container img:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .error-message {
+        color: red;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Our Place</h1>
+    <div id="image-container">
+      <p>Loading images...</p>
+    </div>
+
+    <script>
+      // Function to fetch images based on companyId and token
+      const fetchImages = async () => {
+        const token = localStorage.getItem("token"); // Retrieve token from localStorage
+
+        if (!token) {
+          console.error("JWT token is not available in localStorage.");
+          document.getElementById("image-container").innerHTML =
+            '<p class="error-message">You are not authorized. Please log in.</p>';
+          return;
+        }
+
+        try {
+          // Parse JWT to extract companyId
+          const decodedToken = parseJwt(token);
+          const companyId = decodedToken ? decodedToken.companyId : null;
+
+          if (!companyId) {
+            console.error("Company ID not found in JWT token.");
+            document.getElementById("image-container").innerHTML =
+              '<p class="error-message">Company ID is missing. Please try again.</p>';
+            return;
+          }
+
+          // Fetch image URLs from backend
+          const response = await fetch(
+            `http://localhost:5001/api/v1/upload/getphotos?companyId=${companyId}`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Authorization-Type": "recruiter",
+              },
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch image URLs from the server.");
+          }
+
+          const data = await response.json();
+          const container = document.getElementById("image-container");
+          container.innerHTML = ""; // Clear previous content
+
+          if (data.urls && data.urls.length > 0) {
+            // Loop through the URLs and append images
+            const imageUrls = data.urls;
+            fetch(
+              `http://localhost:5001/api/v1/upload/viewPhotos?urls=${JSON.stringify(
+                imageUrls
+              )}`,
+              {
+                method: "GET",
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Authorization-Type": "recruiter",
+                },
+              }
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                const container = document.getElementById("image-container");
+                container.innerHTML = ""; // Clear previous content
+
+                // Loop through the images and append them
+                data.images.forEach((imageData) => {
+                  const img = document.createElement("img");
+                  img.src = imageData; // Set the src as base64 or URL provided by the backend
+                  img.alt = "Fetched Image";
+                  img.style.maxWidth = "20%";
+                  img.style.height = "auto";
+                  container.appendChild(img);
+                });
+              });
+          } else {
+            container.innerHTML =
+              '<p class="error-message">No images found to display.</p>';
+          }
+        } catch (error) {
+          console.error("Error fetching the image URLs:", error);
+          const container = document.getElementById("image-container");
+          container.innerHTML = `<p class="error-message">Error: ${error.message}</p>`;
+        }
+      };
+
+      // Utility function to parse JWT token
+      function parseJwt(token) {
+        try {
+          const base64Url = token.split(".")[1];
+          const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+          const jsonPayload = decodeURIComponent(
+            atob(base64)
+              .split("")
+              .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+              .join("")
+          );
+
+          return JSON.parse(jsonPayload);
+        } catch (error) {
+          console.error("Error parsing JWT:", error);
+          return null;
+        }
+      }
+
+      // Call the fetchImages function on page load
+      document.addEventListener("DOMContentLoaded", fetchImages);
+    </script>
+  </body>
+</html>

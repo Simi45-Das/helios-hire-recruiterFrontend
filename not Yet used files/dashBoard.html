@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css_files/dashBoard.css">
+    <style>
+        /* Basic styles for the approval message */
+        #approval-status {
+            display: none; /* Hide by default */
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+
+        #redirect-link {
+            display: none; /* Hide by default */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#ratings">See Ratings/Reviews</a></li>
+                <li><a href="#rate">Give Us a Rating</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to the Dashboard! After completing veriffication process deatils will be displayed here.</h2>
+            <div id="approval-status">Your application has been approved!</div>
+            <div id="redirect-link">
+                <p>You can now access our services. <a href="services.html">Go to Services</a></p>
+            </div>
+        </section>
+        <!-- Add sections for About Us, Services, Contact Us, Ratings/Reviews, Give Us a Rating -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Function to check the approval status
+        function checkApprovalStatus() {
+            // Simulated approval status; replace with actual logic or API call
+            const isApproved = false; // Change to true to test the approved state
+
+            if (isApproved) {
+                document.getElementById('approval-status').style.display = 'block';
+                document.getElementById('redirect-link').style.display = 'block';
+            }
+        }
+
+        // Call the function on page load
+        window.onload = checkApprovalStatus;
+    </script>
+</body>
+</html>

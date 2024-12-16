@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="../css_files/chatHistory.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chat History</h1>
+        <div class="chat-list">
+            <div class="chat-item" onclick="showConversation('chat1')">
+                <div class="chat-summary">
+                    <h3>Conversation 1</h3>
+                    <p>Last message snippet...</p>
+                </div>
+            </div>
+            <div class="chat-item" onclick="showConversation('chat2')">
+                <div class="chat-summary">
+                    <h3>Conversation 2</h3>
+                    <p>Last message snippet...</p>
+                </div>
+            </div>
+            <!-- Add more chat items as needed -->
+        </div>
+        <div id="chat-detail" class="chat-detail">
+            <!-- Detailed chat will be displayed here -->
+        </div>
+    </div>
+    <script>
+        function showConversation(chatId) {
+            // This function will display the detailed chat based on chatId
+            document.getElementById('chat-detail').innerHTML = `<h2>Details for ${chatId}</h2><p>Full conversation for ${chatId} goes here...</p>`;
+        }
+    </script>
+</body>
+</html>

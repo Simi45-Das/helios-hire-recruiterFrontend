@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Test (Descriptive & MCQ)</title>
+    <link rel="stylesheet" href="../tes_implementation/designMcqDescriptive.css">
+</head>
+<body>
+    <h1>Create Your Test (Descriptive & MCQ)</h1>
+    <form id="testForm" action="/createTest" method="POST">
+        <!-- Test name -->
+        <label for="testName">Test Name:</label>
+        <input type="text" id="testName" name="testName" required><br><br>
+
+        <!-- Full marks for the test -->
+        <label for="fullMarks">Full Marks:</label>
+        <input type="number" id="fullMarks" name="fullMarks" min="1" required><br><br>
+
+        <div id="questionsContainer">
+            <div class="questionBlock" id="questionBlock1">
+                <!-- Select question type -->
+                <label for="questionType1">Question Type:</label>
+                <select id="questionType1" name="questionType[]" onchange="toggleQuestionType(1)" required>
+                    <option value="descriptive">Descriptive</option>
+                    <option value="mcq">MCQ</option>
+                </select><br><br>
+
+                <!-- Descriptive Question -->
+                <div id="descriptiveQuestion1" class="questionTypeBlock">
+                    <label for="question1">Question 1:</label>
+                    <textarea id="question1" name="questions[]" rows="4" required></textarea><br>
+
+                    <label for="marks1">Marks for this question:</label>
+                    <input type="number" id="marks1" name="marks[]" min="1" required><br>
+
+                    <label for="modelAnswer1">Model Answer / Notes:</label>
+                    <textarea id="modelAnswer1" name="modelAnswers[]" rows="4" required></textarea><br><br>
+                </div>
+
+                <!-- MCQ Question -->
+                <div id="mcqQuestion1" class="questionTypeBlock" style="display:none;">
+                    <label for="mcq1">Question 1:</label>
+                    <textarea id="mcq1" name="questions[]" rows="2"></textarea><br>
+
+                    <label>Options:</label><br>
+                    <input type="text" name="options1[]" placeholder="Option 1"><br>
+                    <input type="text" name="options1[]" placeholder="Option 2"><br>
+                    <input type="text" name="options1[]" placeholder="Option 3"><br>
+                    <input type="text" name="options1[]" placeholder="Option 4"><br>
+
+                    <label for="correctAnswer1">Correct Option:</label>
+                    <select id="correctAnswer1" name="correctAnswers[]">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                    </select><br><br>
+
+                    <!-- Add Marks field for MCQ -->
+                    <label for="marksMcq1">Marks for this question:</label>
+                    <input type="number" id="marksMcq1" name="marks[]" min="1"><br><br>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" id="addQuestionBtn">Add Another Question</button><br><br>
+
+        <!-- Time limit -->
+        <label for="timeLimit">Set Time Limit (minutes):</label>
+        <input type="number" id="timeLimit" name="timeLimit" min="1" required><br><br>
+
+        <input type="submit" value="Create Test">
+    </form>
+
+    <script>
+        let questionCount = 1; // Track the number of questions
+
+        // Function to add new question block
+        document.getElementById('addQuestionBtn').addEventListener('click', function() {
+            questionCount++;
+
+            const questionsContainer = document.getElementById('questionsContainer');
+            
+            // Create a new question block for descriptive or MCQ questions
+            const newQuestionBlock = document.createElement('div');
+            newQuestionBlock.classList.add('questionBlock');
+            newQuestionBlock.innerHTML = `
+                <label for="questionType${questionCount}">Question Type:</label>
+                <select id="questionType${questionCount}" name="questionType[]" onchange="toggleQuestionType(${questionCount})" required>
+                    <option value="descriptive">Descriptive</option>
+                    <option value="mcq">MCQ</option>
+                </select><br><br>
+
+                <div id="descriptiveQuestion${questionCount}" class="questionTypeBlock">
+                    <label for="question${questionCount}">Question ${questionCount}:</label>
+                    <textarea id="question${questionCount}" name="questions[]" rows="4" required></textarea><br>
+
+                    <label for="marks${questionCount}">Marks for this question:</label>
+                    <input type="number" id="marks${questionCount}" name="marks[]" min="1" required><br>
+
+                    <label for="modelAnswer${questionCount}">Model Answer / Notes:</label>
+                    <textarea id="modelAnswer${questionCount}" name="modelAnswers[]" rows="4" required></textarea><br><br>
+                </div>
+
+                <div id="mcqQuestion${questionCount}" class="questionTypeBlock" style="display:none;">
+                    <label for="mcq${questionCount}">Question ${questionCount}:</label>
+                    <textarea id="mcq${questionCount}" name="questions[]" rows="2"></textarea><br>
+
+                    <label>Options:</label><br>
+                    <input type="text" name="options${questionCount}[]" placeholder="Option 1"><br>
+                    <input type="text" name="options${questionCount}[]" placeholder="Option 2"><br>
+                    <input type="text" name="options${questionCount}[]" placeholder="Option 3"><br>
+                    <input type="text" name="options${questionCount}[]" placeholder="Option 4"><br>
+
+                    <label for="correctAnswer${questionCount}">Correct Option:</label>
+                    <select id="correctAnswer${questionCount}" name="correctAnswers[]">
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                        <option value="4">Option 4</option>
+                    </select><br><br>
+
+                    <!-- Add Marks field for MCQ -->
+                    <label for="marksMcq${questionCount}">Marks for this question:</label>
+                    <input type="number" id="marksMcq${questionCount}" name="marks[]" min="1"><br><br>
+                </div>
+            `;
+
+            // Append the new question block to the container
+            questionsContainer.appendChild(newQuestionBlock);
+        });
+
+        // Function to toggle between descriptive and MCQ question blocks
+        function toggleQuestionType(questionId) {
+            const questionType = document.getElementById(`questionType${questionId}`).value;
+            const descriptiveBlock = document.getElementById(`descriptiveQuestion${questionId}`);
+            const mcqBlock = document.getElementById(`mcqQuestion${questionId}`);
+
+            if (questionType === 'descriptive') {
+                descriptiveBlock.style.display = 'block';
+                mcqBlock.style.display = 'none';
+
+                // Ensure MCQ fields are not required when hidden
+                const mcqInputs = mcqBlock.querySelectorAll('textarea, input, select');
+                mcqInputs.forEach(input => input.required = false);
+
+                // Ensure descriptive fields are required
+                const descriptiveInputs = descriptiveBlock.querySelectorAll('textarea, input');
+                descriptiveInputs.forEach(input => input.required = true);
+
+            } else if (questionType === 'mcq') {
+                descriptiveBlock.style.display = 'none';
+                mcqBlock.style.display = 'block';
+
+                // Ensure descriptive fields are not required when hidden
+                const descriptiveInputs = descriptiveBlock.querySelectorAll('textarea, input');
+                descriptiveInputs.forEach(input => input.required = false);
+
+                // Ensure MCQ fields are required
+                const mcqInputs = mcqBlock.querySelectorAll('textarea, input, select');
+                mcqInputs.forEach(input => input.required = true);
+            }
+        }
+    </script>
+    <script src="../tes_implementation/designMcqDescriptive.js"></script>
+</body>
+</html>

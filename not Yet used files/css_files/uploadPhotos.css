@@ -1,0 +1,95 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #3a3d99; /* Deep Blue Color */
+}
+
+header p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 20px;
+}
+
+.file-label {
+    font-size: 1.1em;
+    color: #3a3d99; /* Deep Blue Color */
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Button Styles */
+.choose-button, .upload-button {
+    background-color: #3a3d99; /* Deep Blue Color */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.choose-button:hover, .upload-button:hover {
+    background-color: #283a7c; /* Darker Shade of Blue */
+}
+
+/* File Names Display */
+.file-names {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.file-names p {
+    margin: 5px 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .choose-button, .upload-button {
+        width: 100%;
+        padding: 15px;
+    }
+}

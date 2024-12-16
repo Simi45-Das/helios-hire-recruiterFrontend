@@ -1,0 +1,96 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Set full height for html and body */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light background color */
+    color: #333; /* Text color */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+header {
+    background: linear-gradient(90deg, #4a90e2, #50e3c2); /* Gradient background */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+/* Navbar styles */
+nav {
+    background: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 15px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #50e3c2; /* Change color on hover */
+    border-radius: 5px;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff; /* White background for main content */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-grow: 1; /* Allow main to grow and push footer down */
+}
+
+main h2 {
+    margin-bottom: 20px;
+    color: #4a90e2; /* Title color */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #333;
+    color: #fff;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #50e3c2; /* Link color */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

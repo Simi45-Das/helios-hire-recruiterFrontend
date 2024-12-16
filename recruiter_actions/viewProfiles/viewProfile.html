@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-gray-100 font-sans antialiased">
+    <!-- Sidebar -->
+    <div class="sidebar bg-indigo-800 text-white fixed top-0 left-0 h-full w-64 shadow-lg">
+        <h2 class="text-center text-2xl font-
+    extrabold py-6 border-b border-indigo-700"
+  >Menu Bar</h2>
+        <ul class="space-y-4 px-6 mt-8">
+
+            <li><a href="#about" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition-all"> View Assessment Results</a></li>
+            <li><a href="#services" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition-all">Compare Candidate Rankings</a></li>
+            <li><a href="#contact" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition-all">Initiate Communication</a></li>
+            <li><a href="#jkk" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition-all">Award Expertise Badges</a></li>
+            <li><a href="#dfb" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition-all">Send Invitation</a></li>
+            <li><a href="#rate" class="block py-2 px-4 rounded-md hover:bg-indigo-600 transition-all">Provide Profile Feedback</a></li>
+          
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <section class="ml-72 py-10 px-6">
+        <div class="bg-white shadow-2xl rounded-lg max-w-5xl mx-auto p-8">
+            <!-- Profile Picture -->
+            <div class="flex flex-col items-center">
+                <div id="profile-pic" class="bg-white rounded-full shadow-xl">
+                    <img id="preview" src="https://as2.ftcdn.net/v2/jpg/09/70/98/03/1000_F_970980315_5VYmD4c0BrqX77veKiFsc2J6ksMN5zsh.jpg" alt="Profile Picture" class="rounded-full w-40 h-40 object-cover">
+                </div>
+            </div>
+
+            <!-- Profile Info -->
+            <div class="profile-info text-center mt-10">
+                <h1 class="text-4xl font-extrabold text-gray-900">Simi Das</h1>
+                <p id="para1" class="mt-4 text-gray-700 leading-relaxed">Believe me, if you select me I will ensure your profit.<br />User will add lines here like this.</p>
+                <p id="para2" class="mt-4 text-base text-gray-600 font-medium">Software Developer<br />Expert in HTML<br />Java Specialist</p>
+            </div>
+
+            <!-- Section Navigation -->
+            <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Resume</h2>
+                    <a href="../profile/viewInfo/viewResume.html" class="text-blue-500 hover:text-blue-700">View Resume</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Qualification</h2>
+                    <a href="../profile/viewInfo/viewQualification.html" class="text-blue-500 hover:text-blue-700">View Qualifications</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Project Section</h2>
+                    <a href="../../html/projectFileDisplay.html" class="text-blue-500 hover:text-blue-700">View Projects</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Achievements/Certificates</h2>
+                    <a href="../../html/achievementDetailsDisplay.html" class="text-blue-500 hover:text-blue-700">View Achievements</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Soft Skills</h2>
+                    <a href="../profile/viewInfo/viewSoftskill.html" class="text-blue-500 hover:text-blue-700">View Soft Skills</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Social Media Links</h2>
+                    <a href="../profile/viewInfo/viewMediaLinks.html" class="text-blue-500 hover:text-blue-700">View Links</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Introduction Video</h2>
+                    <a href="../../html/introVideoDisplay.html" class="text-blue-500 hover:text-blue-700">Watch Video</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Impress Recruiter</h2>
+                    <a href="../../html/displayVidMsg.html" class="text-blue-500 hover:text-blue-700">View Recruiter Message</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Contact Details</h2>
+                    <a href="../profile/viewInfo/viewContactInfo.html" class="text-blue-500 hover:text-blue-700">View Contact Info</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Personal Details</h2>
+                    <a href="../profile/viewInfo/viewPersonalinfo.html" class="text-blue-500 hover:text-blue-700">View personal info</a>
+                </div>
+                <div class="bg-indigo-100 rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-bold text-purple-600">Experience</h2>
+                    <a href="../profile/viewInfo/viewExperience.html" class="text-blue-500 hover:text-blue-700">View experience</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../viewProfiles/viewProfile.js"></script>
+</body>
+
+</html>

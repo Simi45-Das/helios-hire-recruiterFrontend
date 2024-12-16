@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create MCQ Test</title>
+    <link rel="stylesheet" href="../tes_implementation/designMCQtest.css">
+</head>
+<body>
+    <h1>Create Your MCQ Test</h1>
+    <form id="testForm" action="/createTest" method="POST">
+        <!-- Test name -->
+        <label for="testName">Test Name:</label>
+        <input type="text" id="testName" name="testName" required><br><br>
+
+        <!-- Full marks for the test -->
+        <label for="fullMarks">Full Marks:</label>
+        <input type="number" id="fullMarks" name="fullMarks" min="1" required><br><br>
+
+        <div id="questionsContainer">
+            <div class="questionBlock" id="questionBlock1">
+                <label for="question1">Question 1:</label>
+                <input type="text" id="question1" name="questions[]" required><br>
+
+                <!-- Marks per question -->
+                <label for="marks1">Marks for this question:</label>
+                <input type="number" id="marks1" name="marks[]" min="1" required><br>
+
+                <label for="option1">Option 1:</label>
+                <input type="text" id="option1" name="options1[]" required><br>
+
+                <label for="option2">Option 2:</label>
+                <input type="text" id="option2" name="options1[]" required><br>
+
+                <label for="option3">Option 3:</label>
+                <input type="text" id="option3" name="options1[]" required><br>
+
+                <label for="option4">Option 4:</label>
+                <input type="text" id="option4" name="options1[]" required><br>
+
+                <label for="correctAnswer1">Correct Answer:</label>
+                <input type="text" id="correctAnswer1" name="correctAnswers[]" required><br><br>
+            </div>
+        </div>
+
+        <button type="button" id="addQuestionBtn">Add Another Question</button><br><br>
+
+        <!-- Time limit -->
+        <label for="timeLimit">Set Time Limit (minutes):</label>
+        <input type="number" id="timeLimit" name="timeLimit" min="1" required><br><br>
+
+        <input type="submit" value="Create Test">
+    </form>
+
+    <script>
+        let questionCount = 1; // Track the number of questions
+
+        // Function to add new question block
+        document.getElementById('addQuestionBtn').addEventListener('click', function() {
+            questionCount++;
+
+            const questionsContainer = document.getElementById('questionsContainer');
+            
+            // Create a new question block
+            const newQuestionBlock = document.createElement('div');
+            newQuestionBlock.classList.add('questionBlock');
+            newQuestionBlock.innerHTML = `
+                <label for="question${questionCount}">Question ${questionCount}:</label>
+                <input type="text" id="question${questionCount}" name="questions[]" required><br>
+
+                <label for="marks${questionCount}">Marks for this question:</label>
+                <input type="number" id="marks${questionCount}" name="marks[]" min="1" required><br>
+
+                <label for="option1">Option 1:</label>
+                <input type="text" id="option1" name="options${questionCount}[]" required><br>
+
+                <label for="option2">Option 2:</label>
+                <input type="text" id="option2" name="options${questionCount}[]" required><br>
+
+                <label for="option3">Option 3:</label>
+                <input type="text" id="option3" name="options${questionCount}[]" required><br>
+
+                <label for="option4">Option 4:</label>
+                <input type="text" id="option4" name="options${questionCount}[]" required><br>
+
+                <label for="correctAnswer${questionCount}">Correct Answer:</label>
+                <input type="text" id="correctAnswer${questionCount}" name="correctAnswers[]" required><br><br>
+            `;
+
+            // Append the new question block to the container
+            questionsContainer.appendChild(newQuestionBlock);
+        });
+    </script>
+    <script src="../tes_implementation/designMCQtest.js"></script>
+</body>
+</html>

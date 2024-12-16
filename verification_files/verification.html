@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Verification Form</title>
+    <link rel="stylesheet" href="../verification_files/verification.css" />
+    <style>
+      .dashboard-link-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .dashboard-link {
+        display: inline-block;
+        background-color: #4caf50;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .dashboard-link:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Company Verification Form</h1>
+      <p>
+        Please fill out the following information to verify the legitimacy of a
+        company.
+      </p>
+
+      <form id="companyVerificationForm">
+        <div class="form-group">
+          <label for="company-id">Company ID:</label>
+          <input
+            type="text"
+            id="company-id"
+            name="companyId"
+            placeholder="Provided in your email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="company-name">Company Name:</label>
+          <input type="text" id="company-name" name="companyName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="registration-number">Company Registration Number:</label>
+          <input
+            type="text"
+            id="registration-number"
+            name="registrationNumber"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="physical-address">Physical Address:</label>
+          <input
+            type="text"
+            id="physical-address"
+            name="physicalAddress"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-number">Contact Number:</label>
+          <input
+            type="tel"
+            id="contact-number"
+            name="contactNumber"
+            placeholder="e.g., +1234567890"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email ID:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="e.g., info@company.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="website">Company Website:</label>
+          <input
+            type="url"
+            id="website"
+            name="website"
+            placeholder="https://companywebsite.com"
+            required
+          />
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Information</button>
+      </form>
+
+      <div class="note">
+        <p>
+          <strong>Note:</strong> If any incorrect or misleading information is identified, your access may be restricted.
+        </p>
+      </div>
+    </div>
+
+    <script src="../verification_files/verification.js"></script>
+  </body>
+</html>

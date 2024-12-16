@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Job Post</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Create Job Post</h1>
+      <form id="jobPostForm">
+        <div class="form-group">
+          <label for="title">Job Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="e.g., Software Engineer"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="e.g., TechCorp"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="e.g., San Francisco, CA"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="employmentType">Employment Type</label>
+          <select id="employmentType" name="employmentType" required>
+            <option value="Full-Time">Full-Time</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Contract">Contract</option>
+            <option value="Internship">Internship</option>
+            <option value="Freelance">Freelance</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="remote">Remote</label>
+          <select id="remote" name="remote" required>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Job Description</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="5"
+            placeholder="Write a detailed job description..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="responsibilities"
+            >Responsibilities (comma-separated)</label
+          >
+          <input
+            type="text"
+            id="responsibilities"
+            name="responsibilities"
+            placeholder="e.g., Develop backend services, Write tests"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="requirements">Requirements (comma-separated)</label>
+          <input
+            type="text"
+            id="requirements"
+            name="requirements"
+            placeholder="e.g., 3+ years experience, MongoDB knowledge"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="preferredSkills"
+            >Preferred Skills (comma-separated)</label
+          >
+          <input
+            type="text"
+            id="preferredSkills"
+            name="preferredSkills"
+            placeholder="e.g., AWS, Docker"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="salary">Salary Range</label>
+          <input
+            type="number"
+            id="minSalary"
+            name="minSalary"
+            placeholder="Min salary"
+          />
+          <input
+            type="number"
+            id="maxSalary"
+            name="maxSalary"
+            placeholder="Max salary"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="benefits">Benefits (comma-separated)</label>
+          <input
+            type="text"
+            id="benefits"
+            name="benefits"
+            placeholder="e.g., Health insurance, Paid time off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="experienceLevel">Experience Level</label>
+          <select id="experienceLevel" name="experienceLevel" required>
+            <option value="Entry">Entry</option>
+            <option value="Mid">Mid</option>
+            <option value="Senior">Senior</option>
+            <option value="Director">Director</option>
+            <option value="Executive">Executive</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="applicationDeadline">Application Deadline</label>
+          <input
+            type="date"
+            id="applicationDeadline"
+            name="applicationDeadline"
+            required
+          />
+        </div>
+
+        <button type="submit">Submit Job Post</button>
+      </form>
+    </div>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

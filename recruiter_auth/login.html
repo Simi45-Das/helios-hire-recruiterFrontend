@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login</title>
+  <link rel="stylesheet" href="../recruiter_auth/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-form">
+      <h2>Login</h2>
+      <form id="loginForm" action="/login" method="POST"> <!-- Added id here -->
+        <div class="input-group">
+          <label for="companyId">Company ID</label>
+          <input type="text" id="companyId" name="companyId" placeholder="Enter your recruiter ID" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <div class="input-group">
+          <button type="submit" class="btn">Login</button>
+        </div>
+      </form>
+      <p class="signup-link">Don't have an account? <a href="../recruiter_auth/recruiterReg.html">Sign up</a></p>
+    </div>
+  </div>
+  <script src="../recruiter_auth/auth3.js"></script> <!-- Ensure this path is correct -->
+   <!-- <script src="../recruiter_actions/home/index.html"></script> -->
+</body>
+</html>

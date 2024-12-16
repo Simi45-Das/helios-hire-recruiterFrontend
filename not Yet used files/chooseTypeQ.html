@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Select Test Type</title>
+    <link rel="stylesheet" href="../css_files/chooseTypeQ.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Select Test Type</h1>
+        <p>Please choose the type of test you want to create:</p>
+        
+        <div class="options">
+            <div class="option">
+                <input type="radio" id="mcq" name="test-type" value="mcq">
+                <label for="mcq">Multiple Choice Questions (MCQ)</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="descriptive" name="test-type" value="descriptive">
+                <label for="descriptive">Descriptive Questions</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="mcq&descriptive" name="test-type" value="mcq&descriptive">
+                <label for="both">Both MCQ and Descriptive</label>
+            </div>
+        </div>
+        
+        <button class="submit-btn" onclick="submitSelection()">Continue</button>
+    </div>
+
+    <script>
+        function submitSelection() {
+            const selected = document.querySelector('input[name="test-type"]:checked');
+            if (selected) {
+                alert('You have selected: ' + selected.value);
+            } else {
+                alert('Please select a test type!');
+            }
+        }
+
+
+        
+    function submitSelection() {
+        const selected = document.querySelector('input[name="test-type"]:checked');
+        if (selected) {
+            // Redirect based on the selected value
+            if (selected.value === 'mcq') {
+                window.location.href = 'designMCQtest.html'; // Replace with the actual MCQ test page URL
+            } else if (selected.value === 'descriptive') {
+                window.location.href = 'designDescriptiveTest.html'; // Replace with the actual Descriptive test page URL
+            } else if (selected.value === 'mcq&descriptive') {
+                window.location.href = 'designMcqDescriptive.html'; // Replace with the actual Both test page URL
+            }
+        } else {
+            alert('Please select a test type!');
+        }
+    }
+
+
+    </script>
+</body>
+</html>

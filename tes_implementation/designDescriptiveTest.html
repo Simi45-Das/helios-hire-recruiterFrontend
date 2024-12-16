@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Descriptive Test</title>
+    <link rel="stylesheet" href="../tes_implementation/designDescriptiveTest.css" />
+</head>
+<body>
+    <h1>Create Your Descriptive Test</h1>
+    <form id="testForm">
+        <!-- Test name -->
+        <label for="testName">Test Name:</label>
+        <input type="text" id="testName" name="testName" required /><br /><br />
+
+        <!-- Full marks for the test -->
+        <label for="fullMarks">Full Marks:</label>
+        <input type="number" id="fullMarks" name="fullMarks" min="1" required /><br /><br />
+
+        <!-- Passing marks -->
+        <label for="passingMarks">Passing Marks:</label>
+        <input type="number" id="passingMarks" name="passingMarks" min="1" required /><br /><br />
+
+        <div id="questionsContainer">
+            <div class="questionBlock" id="questionBlock1">
+                <!-- Descriptive Question 1 -->
+                <label for="question1">Question 1:</label>
+                <textarea id="question1" name="questions[]" rows="4" required></textarea><br />
+
+                <!-- Marks per question -->
+                <label for="marks1">Marks for this question:</label>
+                <input type="number" id="marks1" name="marks[]" min="1" required /><br />
+
+                <!-- Correct Answer / Model Answer -->
+                <label for="modelAnswer1">Model Answer / Notes:</label>
+                <textarea id="modelAnswer1" name="modelAnswers[]" rows="4" required></textarea><br /><br />
+            </div>
+        </div>
+
+        <button type="button" id="addQuestionBtn">Add Another Question</button><br /><br />
+
+        <!-- Time limit -->
+        <label for="timeLimit">Set Time Limit (minutes):</label>
+        <input type="number" id="timeLimit" name="timeLimit" min="1" required /><br /><br />
+
+        <input type="submit" value="Create Test" />
+    </form>
+
+    <!-- Include the fetch JS file -->
+    <script src="../tes_implementation/designDescriptiveTest.js"></script>
+</body>
+</html>

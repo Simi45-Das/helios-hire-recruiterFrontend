@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply to Candidates</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    // Function to fetch candidate names and user IDs from the API and display them
+    async function fetchCandidates() {
+      try {
+        // Fetch data from the API endpoint
+        const response = await fetch("http://localhost:5000/api/auth/get-all-names");
+        const candidates = await response.json(); // Assuming response is in JSON format
+
+        const candidateListContainer = document.getElementById("candidateList");
+
+        // Check if there are candidates to display
+        if (candidates.length === 0) {
+          candidateListContainer.innerHTML = `<p class="text-center text-lg text-gray-600 mb-8">No candidates found.</p>`;
+        } else {
+          // Loop through each candidate and create a card
+          candidates.forEach((candidate) => {
+            const candidateCard = document.createElement("div");
+            candidateCard.classList.add(
+              "bg-white", "border", "border-gray-200", "rounded-lg", 
+              "shadow-md", "overflow-hidden", "transform", "transition-all", 
+              "hover:scale-105", "hover:shadow-xl"
+            );
+
+            // Create the candidate card with a clickable button
+            candidateCard.innerHTML = `
+              <div class="p-6">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">${candidate.name}</h3>
+                <button onclick="handleRedirect('${candidate.userID}', '${encodeURIComponent(candidate.name)}')"
+                class="w-full text-center bg-blue-600 text-white py-2 px-6 rounded-md font-semibold hover:bg-blue-700 transition duration-300">
+                  View Profile
+                </button>
+              </div>
+            `;
+
+            candidateListContainer.appendChild(candidateCard);
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+        const candidateListContainer = document.getElementById("candidateList");
+        candidateListContainer.innerHTML = `<p class="text-center text-lg text-red-600">Error fetching candidates. Please try again later.</p>`;
+      }
+    }
+
+    // Handle redirect when button is clicked
+    function handleRedirect(userID, name) {
+      console.log("User ID:", userID); // Check if the userID is passed correctly
+      console.log("Name:", name); // Check if the name is passed correctly
+
+      // Using relative file path for local file system
+      const redirectUrl = `../viewProfiles/viewProfile.html?userID=${userID}&name=${name}`
+
+      console.log("Redirecting to:", redirectUrl); // Check the final URL
+      window.location.href = redirectUrl; // Perform the redirect
+    }
+
+    // Call fetchCandidates on page load
+    window.onload = fetchCandidates;
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Main Container -->
+  <div class="max-w-6xl mx-auto mt-16 p-8 bg-white shadow-lg rounded-lg">
+
+    <!-- Page Title -->
+    <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-6">
+      Explore Candidate Profiles
+    </h1>
+
+    <!-- Description Text -->
+    <p class="text-center text-lg text-gray-600 mb-8">
+      Browse through our curated list of candidates and view their profiles. Click "View Profile" to learn more about each individual.
+    </p>
+
+    <!-- Candidate List -->
+    <div id="candidateList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <!-- Dynamic content will be injected here by JavaScript -->
+    </div>
+
+  </div>
+
+ 
+
+</body>
+</html>

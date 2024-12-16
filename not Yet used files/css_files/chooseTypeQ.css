@@ -1,0 +1,94 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #2c3e50;
+}
+
+/* Container for the form */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Heading */
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* Description text */
+p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #7f8c8d;
+}
+
+/* Test type options */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Each option */
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.option input[type="radio"] {
+    accent-color: #3498db;
+    transform: scale(1.2);
+}
+
+.option label {
+    font-size: 18px;
+    color: #34495e;
+    cursor: pointer;
+}
+
+/* Button Styles */
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}

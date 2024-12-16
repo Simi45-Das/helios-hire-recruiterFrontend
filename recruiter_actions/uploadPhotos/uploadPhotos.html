@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Photo Upload</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto p-8 max-w-3xl bg-white rounded-lg shadow-lg">
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-800">Upload Company Photos</h1>
+            <p class="text-gray-600 mt-4">Please select and upload multiple photos of your company. Supported formats: JPG, PNG, GIF.</p>
+        </header>
+
+        <!-- Main Content Section -->
+        <main>
+            <!-- File selection section -->
+            <section class="mb-8">
+                <label for="photos" class="block text-gray-700 font-medium mb-2">Select Company Photos:</label>
+                <div class="flex items-center justify-between border-2 border-dashed border-gray-400 p-4 rounded-lg">
+                    <input type="file" name="photos" id="photos" multiple accept="image/*" class="hidden" />
+                    <button type="button" id="choose-button" class="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Choose Files</button>
+                </div>
+            </section>
+
+            <!-- Display Selected Photos -->
+            <section id="photo-preview" class="grid grid-cols-3 gap-4 mb-8">
+                <!-- Thumbnails of selected photos will appear here -->
+            </section>
+
+            <!-- Upload button section -->
+            <section class="flex justify-center">
+                <button type="submit" id="upload-button" class="bg-green-600 text-white py-3 px-6 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    Upload Photos
+                </button>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center mt-8 text-gray-500">
+            <p>&copy; 2024 Company Photo Upload. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="../uploadPhotos/uploadPhoto.js"></script>
+</body>
+</html>

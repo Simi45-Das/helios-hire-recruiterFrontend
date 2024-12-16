@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Job Notification</title>
+    <link rel="stylesheet" href="../css_files/notificationDetails.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Create Job Notification</h1>
+        <form action="/submit-notification" method="POST" enctype="multipart/form-data">
+            <label for="notificationTitle">Notification Title:</label>
+            <input type="text" id="notificationTitle" name="notificationTitle" required>
+
+            <label for="notificationText">Notification Text:</label>
+            <textarea id="notificationText" name="notificationText" rows="6" required></textarea>
+
+            <label for="notificationDate">Date:</label>
+            <input type="text" id="notificationDate" name="notificationDate" value="" readonly>
+
+            <label for="notificationTime">Time:</label>
+            <input type="text" id="notificationTime" name="notificationTime" value="" readonly>
+
+            <label for="notificationPdf">Upload PDF (optional):</label>
+            <input type="file" id="notificationPdf" name="notificationPdf" accept=".pdf">
+
+            <button type="submit" class="submit-button">Submit Notification</button>
+        </form>
+
+        <!-- Section to display the notification title dynamically -->
+        <div class="notification-preview">
+            <h2 id="previewTitle">Notification Title Preview</h2>
+            <p id="previewText">Notification text will appear here.</p>
+        </div>
+    </div>
+
+    <script>
+        // Update date and time fields with the current date and time
+        document.addEventListener('DOMContentLoaded', () => {
+            const now = new Date();
+            const dateField = document.getElementById('notificationDate');
+            const timeField = document.getElementById('notificationTime');
+            
+            // Format date and time
+            const date = now.toISOString().split('T')[0]; // YYYY-MM-DD
+            const time = now.toTimeString().split(' ')[0]; // HH:MM:SS
+
+            dateField.value = date;
+            timeField.value = time;
+        });
+
+        // Update preview title and text dynamically
+        document.getElementById('notificationTitle').addEventListener('input', (event) => {
+            document.getElementById('previewTitle').textContent = event.target.value || 'Notification Title Preview';
+        });
+
+        document.getElementById('notificationText').addEventListener('input', (event) => {
+            document.getElementById('previewText').textContent = event.target.value || 'Notification text will appear here.';
+        });
+    </script>
+    <script src="../js_files/notificationDetails.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Form Builder</title>
+    <link rel="stylesheet" href="../css_files/designApplication.css">
+</head>
+<body>
+
+    <h1>Design Your Application Form</h1> 
+
+    <div class="container">
+        <div class="form-builder">
+            <label for="formName">Form Name:</label>
+            <input type="text" id="formName" placeholder="Enter form name">
+            
+            <label for="elementType">Select Form Element:</label>
+            <select id="elementType">
+                <option value="text">Text Input</option>
+                <option value="email">Email Input</option>
+                <option value="textarea">Text Area</option>
+                <option value="select">Dropdown</option>
+                <option value="checkbox">Checkbox</option>
+                <option value="radio">Radio Button</option>
+                <option value="submit">Submit Button</option>
+            </select>
+
+            <label for="elementLabel">Label:</label>
+            <input type="text" id="elementLabel" placeholder="Enter label for the form element">
+
+            <br/>
+            <br/>
+            <h5>Select options for radio button and dropdown</h5>
+            <label for="elementoption">Option 1:</label>
+            <input type="text" id="elementoption1" placeholder="Enter option 1">
+            <label for="elementoption">Option 2:</label>
+            <input type="text" id="elementoption2" placeholder="Enter option 2">
+            <label for="elementoption">Option 3:</label>
+            <input type="text" id="elementoption3" placeholder="Enter option 3">
+
+            <button onclick="addFormElement()">Add Options/Elements</button>
+        </div>
+
+        <!-- Form Preview Area -->
+        <div id="formPreview" class="form-preview">
+            <h2 id="previewFormName">Your Form Name Will Appear Here</h2> <!-- Added ID here -->
+            <!-- Form elements will be dynamically added here -->
+        </div>
+        
+        <button id="uploadButton">Upload</button>
+    </div>
+
+    <script src="../js_files/designApplication2.js"></script>
+</body>
+</html>

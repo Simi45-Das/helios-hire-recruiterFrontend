@@ -1,0 +1,130 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Main container styling */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Form label styling */
+form label {
+    font-size: 1.2rem;
+    color: #0056b3;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Form input fields styling */
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+/* Input focus styles */
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Button styling */
+button, input[type="submit"] {
+    background-color: #0056b3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #003f7f;
+}
+
+/* Add Question button styling */
+#addQuestionBtn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #28a745;
+}
+
+#addQuestionBtn:hover {
+    background-color: #218838;
+}
+
+/* Question Block styling */
+.questionBlock {
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.questionBlock:nth-child(even) {
+    background-color: #e9ecef;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    form label {
+        font-size: 1rem;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form textarea,
+    form select {
+        font-size: 0.9rem;
+    }
+
+    button, input[type="submit"] {
+        font-size: 1rem;
+    }
+}
